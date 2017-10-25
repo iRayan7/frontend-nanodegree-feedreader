@@ -134,7 +134,7 @@ $(function() {
             newContent = $('.feed').html();
             expect(oldContent).not.toEqual(newContent);
             done();
-        })
+        });
 
 
     });
