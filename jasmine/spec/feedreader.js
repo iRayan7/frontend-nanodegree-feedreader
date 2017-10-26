@@ -57,7 +57,7 @@ $(function() {
         var body, menuIcon;
 
         beforeEach(function(){
-            body = $('body');
+            body = $('body'); // will use it with JQuery's hasClass function
             menuIcon = $('.menu-icon-link');
         });
 
@@ -69,7 +69,7 @@ $(function() {
          */
         // test case to make sure that the menu is hidden by default
         it('is hidden', function(){
-            expect(body.attr('class')).toEqual('menu-hidden');
+            expect(body.hasClass('menu-hidden')).toBeTruthy();
         });
 
 
@@ -82,9 +82,9 @@ $(function() {
         // test case to make sure that the menuIcon button is functional
         it('show when clicked and hide when clicked again', function(){
             menuIcon.click();
-            expect(body.attr('class')).not.toEqual('menu-hidden');
+            expect(body.hasClass('menu-hidden')).toBeFalsy();
             menuIcon.click();
-            expect(body.attr('class')).toEqual('menu-hidden');
+            expect(body.hasClass('menu-hidden')).toBeTruthy();
         });
 
     });
@@ -104,9 +104,8 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         // test case to make sure that the loadFeed function load at least 1 entry
-        it('should have at least 1 entry', function(done){
+        it('should have at least 1 entry', function(){
             expect( ($('.feed').find('.entry')).length ).toBeGreaterThan(0);
-            done();
             });
 
     });
